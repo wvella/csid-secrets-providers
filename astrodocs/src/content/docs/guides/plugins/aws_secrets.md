@@ -163,3 +163,11 @@ config.providers.secretsManager.param.aws.access.key=qadfoadsfaweasdafsd
 config.providers.secretsManager.param.aws.secret.key=asdifbasidvcasdadsfasd
 ```
 
+##### Accessing the Secret Value
+
+Following on from the example above, to access the Secret Value (For example in a Connector Configuration), use the following template.
+```java
+${secretsManager:secretID:secretKey}
+```
+* secretID: As per the `secretId` [method](https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/secretsmanager/model/GetSecretValueRequest.html#secretId()), specify the ARN or name of the secret to retrieve. To retrieve a secret from another AWS account, you must use an ARN.
+* secretKey: The name of the *Secret key* in the *Secret value* for the *Secret* in AWS Secrets Manager. In the example at the top of this page, this would be `username`.
